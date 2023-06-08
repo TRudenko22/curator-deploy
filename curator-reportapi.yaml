@@ -1,0 +1,15 @@
+apiVersion: curator.curator/v1alpha1
+kind: ReportAPI
+metadata:
+  labels:
+    app.kubernetes.io/name: reportapi
+    app.kubernetes.io/instance: reportapi-sample
+    app.kubernetes.io/part-of: curator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: curator
+  name: reportapi-sample
+spec:
+  reportingEnd: "2023-06-30T00:00:00Z"
+  reportPeriod: Day
+  namespace: koku-metrics-operator
+  metricsName: ["pod", "pod_request_cpu_core_seconds"]

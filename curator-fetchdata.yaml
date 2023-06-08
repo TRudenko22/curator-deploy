@@ -1,0 +1,20 @@
+apiVersion: curator.curator/v1alpha1
+kind: FetchData
+metadata:
+  labels:
+    app.kubernetes.io/name: fetchdata
+    app.kubernetes.io/instance: fetchdata-sample
+    app.kubernetes.io/part-of: curator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: curator
+  name: fetchdata-sample
+spec:
+  cronjobNamespace: koku-metrics-operator
+  schedule: "*/5 * * * *"
+  backupSrc: /tmp/koku-metrics-operator-data/upload
+  unzipDir: /tmp/koku-metrics-operator-data/s3sync
+  databaseName: curatordb 
+  databasePassword: Ahzooy7Lo5koh 
+  databaseUser: curator 
+  databaseHostname: postgresql.curator-system.svc.cluster.local  
+  databasePort: '5432' 
